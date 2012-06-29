@@ -16,7 +16,7 @@ Gem::Specification.new do |gem|
   gem.version       = Teleportd::VERSION
 
   gem.add_runtime_dependency 'json', '~> 1.7.1'
-  gem.add_runtime_dependency 'active_support'
+  gem.add_runtime_dependency 'activesupport'
   gem.add_runtime_dependency 'i18n'
   gem.add_runtime_dependency 'curb'
   gem.add_development_dependency 'pry'
