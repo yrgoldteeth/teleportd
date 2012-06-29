@@ -1,6 +1,7 @@
 # Teleportd
 
-Ruby Wrapper Library for Teleportd API
+Ruby Wrapper Library for [Teleportd](http://teleportd.com)
+[API](http://teleportd.com/api)
 
 Currently, this wrapper only supports the basic search functionality.
 
@@ -54,6 +55,26 @@ Query With Time Period (start/end)
     $ options[:time_period] = {}
     $ options[:time_period][:start_time] = 5.days.ago
     $ options[:time_period][:end_time] = 2.days.ago
+    $ search = Teleportd::Search.new(options)
+
+Query With Sort (relevance/recency)
+    
+    $ options = {}
+    $ options[:sort] = 'relevance'
+    $ search = Teleportd::Search.new(options)
+
+Options can be combined, of course:
+    
+    $ options = {}
+    $ options[:location] = {}
+    $ options[:location][:latitude] = 34.19
+    $ options[:location][:longitude] = -119.49
+    $ options[:location][:vertical] = 5.0
+    $ options[:location][:horizontal] = 5.0
+    $ options[:time_period] = {}
+    $ options[:time_period][:start_time] = 5.days.ago
+    $ options[:time_period][:end_time] = 2.days.ago
+    $ options[:textual_search] = 'foo bar baz'
     $ search = Teleportd::Search.new(options)
 
 ## Contributing
