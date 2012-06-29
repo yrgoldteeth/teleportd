@@ -4,8 +4,8 @@ require File.expand_path('../lib/teleportd/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Nicholas Fine"]
   gem.email         = ["nicholas.fine@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Ruby Wrapper Library for Teleportd API}
+  gem.summary       = %q{Ruby Wrapper Library for Teleportd API}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($\)
@@ -14,4 +14,10 @@ Gem::Specification.new do |gem|
   gem.name          = "teleportd"
   gem.require_paths = ["lib"]
   gem.version       = Teleportd::VERSION
+
+  gem.add_runtime_dependency 'json', '~> 1.7.1'
+  gem.add_runtime_dependency 'active_support'
+  gem.add_runtime_dependency 'i18n'
+  gem.add_runtime_dependency 'curb'
+  gem.add_development_dependency 'pry'
 end
