@@ -5,7 +5,6 @@ require 'teleportd/version'
 require 'teleportd/config'
 require 'teleportd/request'
 require 'teleportd/search'
-require 'teleportd/stream'
 
 module Teleportd
 end

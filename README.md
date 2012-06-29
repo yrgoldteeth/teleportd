@@ -2,6 +2,8 @@
 
 Ruby Wrapper Library for Teleportd API
 
+Currently, this wrapper only supports the basic search functionality.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -18,7 +20,41 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+NOTE: You must set an ENV variable 'TELEPORTD_API_KEY' for your Teleportd API key
+
+    $ export TELEPORTD_API_KEY=$APIKEY
+
+Create an instance of a Teleportd::Search with optional filters.  Call
+the result method on the Search instance to receive a Hash of the
+search.
+
+Basic Query Without Filters:
+
+    $ search = Teleportd::Search.new
+
+Query With Locations:
+
+    $ options = {}
+    $ options[:location] = {}
+    $ options[:location][:latitude] = 34.19
+    $ options[:location][:longitude] = -119.49
+    $ options[:location][:vertical] = 5.0
+    $ options[:location][:horizontal] = 5.0
+    $ search = Teleportd::Search.new(options)
+
+Query With Textual Search:
+
+    $ options = {}
+    $ options[:textual_search] = 'foo bar baz'
+    $ search = Teleportd::Search.new(options)
+
+Query With Time Period (start/end)
+    
+    $ options = {}
+    $ options[:time_period] = {}
+    $ options[:time_period][:start_time] = 5.days.ago
+    $ options[:time_period][:end_time] = 2.days.ago
+    $ search = Teleportd::Search.new(options)
 
 ## Contributing
 

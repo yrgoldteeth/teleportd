@@ -1,6 +1,11 @@
-require 'pry'
 module Teleportd
   class Search
+
+    class << self
+      def potential_available_filters
+        [:location, :textual_search, :time_period, :size_filter, :from_filter, :sort_filter]
+      end
+    end
 
     attr_reader :opts
 
@@ -25,7 +30,7 @@ module Teleportd
     end
 
     def available_filters
-      [:location, :textual_search, :time_period, :size_filter, :from_filter, :sort_filter].each_with_object([]) do |filter, available|
+      Search.potential_available_filters.each_with_object([]) do |filter, available|
         available << filter unless self.send(filter).nil?
       end
     end
