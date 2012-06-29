@@ -37,7 +37,7 @@ module Teleportd
 
     def has_location?
       loc = opts[:location]
-      !!loc && loc.has_key?(:latitude) && loc.has_key(:longitude) && loc.has_key(:vertical) && loc.has_key(:horizontal)
+      !!loc && loc.has_key?(:latitude) && loc.has_key?(:longitude) && loc.has_key?(:vertical) && loc.has_key?(:horizontal)
     end
 
     def location
