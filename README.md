@@ -1,6 +1,6 @@
 # Teleportd
 
-TODO: Write a gem description
+Ruby Wrapper Library for Teleportd API
 
 ## Installation
 
