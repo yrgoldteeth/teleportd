@@ -1,5 +1,6 @@
 module Teleportd
   class Search
+    include Enumerable
 
     class << self
       def potential_available_filters
@@ -10,15 +11,23 @@ module Teleportd
     attr_reader :opts
 
     def initialize opts={}
-      @opts = opts
+      @opts    = opts
       @request = Request.new(request_uri)
     end
 
-    def result
-      @request.parsed_response
+    def results
+      @results ||= parsed_response["hits"].map{|r|SearchResult.new(r)}
+    end
+
+    def each
+      results.each {|member| yield member}
     end
 
     private
+    def parsed_response
+      @request.parsed_response
+    end
+
     def request_uri
       available_filters.each_with_object(base_request_uri) do |filter, uri|
         uri << "&#{self.send(filter)}"
@@ -63,7 +72,7 @@ module Teleportd
     def time_period
       return nil unless has_time_search?
       begin_period = opts[:time_period][:start_time].to_i
-      end_period = opts[:time_period][:end_time].to_i
+      end_period   = opts[:time_period][:end_time].to_i
       "period=[#{begin_period},#{end_period}]"
     end
 

@@ -25,13 +25,9 @@ NOTE: You must set an ENV variable 'TELEPORTD_API_KEY' for your Teleportd API ke
 
     $ export TELEPORTD_API_KEY=$APIKEY
 
-Create an instance of a Teleportd::Search with optional filters.  Call
-the result method on the Search instance to receive a Hash of the
-search.
-
-Basic Query Without Filters:
-
-    $ search = Teleportd::Search.new
+Create an instance of a Teleportd::Search with optional filters.  The
+Search returns an enumerable collection of Teleportd::SearchResult
+objects
 
 Query With Locations:
 
